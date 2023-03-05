@@ -1,5 +1,4 @@
 from pathlib import Path
-
 import environ
 
 env = environ.Env()
@@ -23,6 +22,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+
+    "accounts",
 ]
 
 DEFAULT_FROM_EMAIL=env('DEFAULT_FROM_EMAIL')
@@ -115,3 +117,6 @@ STATICFILES_DIRS = [ BASE_DIR / "static" ]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
