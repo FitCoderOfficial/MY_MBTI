@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" action="{% url 'results' %}">
+    {% csrf_token %}
+    {% for question in questions %}
+        <div>
+            <p>{{ question.question }}</p>
+            {% for choice, score in question.choices.items %}
+                <input type="radio" name="question_{{ question.id }}" value="{{ score }}">
+                <label>{{ choice }}</label><br>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
