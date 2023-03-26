@@ -4,6 +4,10 @@ from .forms import CustomUserCreationForm
 from .models import CustomUser
 import uuid
 
+def home(request):
+    users = CustomUser.objects.all()
+    return render(request, 'accounts/home.html', {'users': users})
+
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
